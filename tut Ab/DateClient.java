@@ -9,7 +9,9 @@ public class DateClient{
 	public static void main(String args[]){
 		try{
 			//create and ionitialize ORB
-			ORB orb = ORB.init(args, null);
+			Properties props = new Properties();
+			props.put("org.omg.CORBA.ORBInitialPort", "1050");
+	        ORB orb = ORB.init(args, props);
 
 			//get and convert the stringifies object refernece
 			//to a generic CORBA object reference

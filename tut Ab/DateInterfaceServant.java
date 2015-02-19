@@ -4,7 +4,7 @@ import java.util.Date;
 import java.io.*;
 import java.net.*;
 
-class DateInterfaceServant extends _DateInterfaceImplBase{
+class DateInterfaceServant implements DateInterfaceOperations{
 	public String getMasterDateMethod(String student){
 		System.out.println("Received a call from " +student + ".");
 		return new Date().toString();

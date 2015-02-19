@@ -9,10 +9,13 @@ public class DateServer{
 
 	public static void main(String args[]){
 		try{
-			ORB orb = ORB.init(args, null);
+			Properties props = new Properties();
+			        	props.put("org.omg.CORBA.ORBInitialPort", "1050");
+			        	// props.put("org.omg.CORBA.ORBInitialHost", "localhost");
+        	ORB orb = ORB.init(args, props);
 
 			//Create servant and register it with the ORB
-			DateInterfaceServant dateObjectReference = new DateInterfaceServant();
+			DateInterface dateObjectReference = new DateInterface_Tie(new DateInterfaceServant());
 			orb.connect(dateObjectReference);
 
 			//convert the object reference to a string
